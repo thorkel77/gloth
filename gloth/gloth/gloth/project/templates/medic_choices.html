@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<header style="background:#ffffff; color:#2c3e50;">
+    <div class="container" id="maincontent" tabindex="-1">
+        <div class="column">
+            <form action="{{url_for("medic", _external=True)}}" method="post" role=Medic_choices_Form>
+            <fieldset>
+                      <div class="row">
+                        {{ Medic_choices_Form.hidden_tag() }}
+                        </div>
+                      <div class="row">
+                        <div class="longcolumn">
+                          <div class="rowrapper">
+                            <h4 id="labels">{{ Medic_choices_Form.pathology.label }}</h4>
+                            {{ Medic_choices_Form.pathology() }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="longcolumn">
+                          <div class="rowrapper">
+                            <h4 id="labels">{{ Medic_choices_Form.user.label }}</h4>
+                            {{ Medic_choices_Form.user() }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="longcolumn text-center">
+                          <button type="submit" class='button'">{{ Medic_choices_Form.submit }}</button>
+                        </div>
+                      </div>
+                    </fieldset>
+            <h3>ID de la maladie: {{pathology}}</h3>
+            <h3>ID du docteur: {{user}}</h3>
+        </div>
+    </div>
+</header>
+<!-- {% endblock%} -->
